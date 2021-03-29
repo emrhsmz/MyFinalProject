@@ -15,11 +15,11 @@ namespace DataAccess.Concrete.InMemory
         {
             // Oracle, SqlServer, Mysql,MongoDb,Postgress
             _products = new List<Product>() {
-                new Product { ProductID =1, CategoryID= 2,ProductName="Bardak", UnitPrice=15,UnitInStock =15 },
-                new Product { ProductID =2, CategoryID= 1,ProductName="Kamera", UnitPrice=130,UnitInStock =14 },
-                new Product { ProductID =3, CategoryID= 1,ProductName="Telefon", UnitPrice=1500,UnitInStock =1 },
-                new Product { ProductID =4, CategoryID= 1,ProductName="Klavye", UnitPrice=150,UnitInStock =155 },
-                new Product { ProductID =5, CategoryID= 2,ProductName="Demlik", UnitPrice=85,UnitInStock =150 }
+                new Product { ProductID =1, CategoryID= 2,ProductName="Bardak", UnitPrice=15,UnitsInStock =15 },
+                new Product { ProductID =2, CategoryID= 1,ProductName="Kamera", UnitPrice=130,UnitsInStock =14 },
+                new Product { ProductID =3, CategoryID= 1,ProductName="Telefon", UnitPrice=1500,UnitsInStock =1 },
+                new Product { ProductID =4, CategoryID= 1,ProductName="Klavye", UnitPrice=150,UnitsInStock =155 },
+                new Product { ProductID =5, CategoryID= 2,ProductName="Demlik", UnitPrice=85,UnitsInStock =150 }
             };
         }
 
@@ -63,7 +63,7 @@ namespace DataAccess.Concrete.InMemory
             productToUpdate.ProductName = product.ProductName;
             productToUpdate.CategoryID = product.CategoryID;
             productToUpdate.UnitPrice = product.UnitPrice;
-            productToUpdate.UnitInStock = product.UnitInStock;
+            productToUpdate.UnitsInStock = product.UnitsInStock;
         }
     }
 }
