@@ -10,6 +10,7 @@ namespace Core.DataAccess
     // class: referans tip
     // T referans tip olmalı ya IEntity olabilir yada IEntity implamente etmiş class-nesne olabilir.
     // new() : new'lenebilir
+    // core katmanı diğer katmanları referans almaz.
     public interface IEntityRepository<T> where T:class,IEntity, new()
     {
         List<T> GetAll(Expression<Func<T,bool>> filter=null);
