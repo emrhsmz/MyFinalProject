@@ -26,5 +26,20 @@ namespace Business.Concrete
         {
             return _categoryDal.GetAll(c => c.CategoryID == categoryId);
         }
+
+        public void Add(Category category)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Category category)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Category category)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

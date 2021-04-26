@@ -9,5 +9,8 @@ namespace Business.Abstract
     {
         List<Category> GetAll();
         List<Category> GetById(int categoryId);
+        void Add(Category category);
+        void Update(Category category);
+        void Delete(Category category);
     }
 }
