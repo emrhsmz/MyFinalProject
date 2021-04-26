@@ -15,11 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{BEC1DF27-A57F-4E73-BDFA-E08BD57BA72B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_sql", "_sql", "{B6D30702-E2AD-4417-AA08-8C8A39665AF7}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Documents\script1.sql = ..\..\..\..\Documents\script1.sql
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
