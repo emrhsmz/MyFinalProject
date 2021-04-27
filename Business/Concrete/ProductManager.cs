@@ -70,13 +70,13 @@ namespace Business.Concrete
                 return new ErrorResult(Messages.ProductNameInvalid);
             }
             _productDal.Update(product);
-            return new SuccessResult(Messages.ProductAdded);
+            return new SuccessResult(Messages.ProductUpdated);
         }
 
         public IResult Delete(Product product)
         {
             _productDal.Delete(product);
-            return new SuccessResult(Messages.ProductAdded);
+            return new SuccessResult(Messages.ProductsDeleted);
         }
     }
 }

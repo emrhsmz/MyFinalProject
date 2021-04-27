@@ -25,17 +25,62 @@ namespace WebAPI.Controllers
             _productService = productService;
         }
 
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("getall")]
+        public IActionResult GetAll()
         {
+            //swagger -- dokumente edilmiş
             // Dependency chain -- bağımlılık
             //IProductService productService = new ProductManager(new EfProductDal());
             var result = _productService.GetAll();
             if (result.Success)
             {
-                return Ok();
+                return Ok(result);
             }
-            return result.Data;
+            return BadRequest(result);
+        }
+
+        [HttpPost("add")]
+        public IActionResult Add(Product product)
+        {
+            var result = _productService.Add(product);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("update")]
+        public IActionResult Update(Product product)
+        {
+            var result = _productService.Update(product);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("delete")]
+        public IActionResult Delete(Product product)
+        {
+            var result = _productService.Delete(product);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int id)
+        {
+            var result = _productService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }
