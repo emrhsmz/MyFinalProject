@@ -4,6 +4,8 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Business.Constants;
+using Core.Utilities.Results;
 
 namespace Business.Concrete
 {
@@ -17,29 +19,32 @@ namespace Business.Concrete
         }
 
         //iş kodları
-        public List<Category> GetAll()
+        public IDataResult<List<Category>> GetAll()
         {
-            return _categoryDal.GetAll();
+            return new SuccessDataResult<List<Category>>(_categoryDal.GetAll(), Messages.CategoriesListed);
         }
 
-        public List<Category> GetById(int categoryId)
+        public IDataResult<Category> GetById(int categoryId)
         {
-            return _categoryDal.GetAll(c => c.CategoryID == categoryId);
+            return new SuccessDataResult<Category>(_categoryDal.Get(c=>c.CategoryID == categoryId), Messages.CategoriesListed);
         }
 
-        public void Add(Category category)
+        public IResult Add(Category category)
         {
-            throw new NotImplementedException();
+            _categoryDal.Add(category);
+            return new SuccessResult(Messages.CategoryAdded);
         }
 
-        public void Update(Category category)
+        public IResult Update(Category category)
         {
-            throw new NotImplementedException();
+            _categoryDal.Update(category);
+            return new SuccessResult(Messages.CategoryUpdated);
         }
 
-        public void Delete(Category category)
+        public IResult Delete(Category category)
         {
-            throw new NotImplementedException();
+            _categoryDal.Delete(category);
+            return new SuccessResult(Messages.CategoryDeleted);
         }
     }
 }

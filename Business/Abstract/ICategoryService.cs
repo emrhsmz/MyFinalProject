@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.Utilities.Results;
 
 namespace Business.Abstract
 {
     public interface ICategoryService
     {
-        List<Category> GetAll();
-        List<Category> GetById(int categoryId);
-        void Add(Category category);
-        void Update(Category category);
-        void Delete(Category category);
+        IDataResult<List<Category>> GetAll();
+        IDataResult<Category> GetById(int categoryId);
+        IResult Add(Category category);
+        IResult Update(Category category);
+        IResult Delete(Category category);
     }
 }
