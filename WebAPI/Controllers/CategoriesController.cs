@@ -14,16 +14,16 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
         // loosely coupled -- gevşek bağımlılık -- soyuta bağımlılık
         // naming convention
         //IoC container -- Inversion of Container
-        IProductService _productService;
+        ICategoryService _categoryService;
 
-        public ProductsController(IProductService productService)
+        public CategoriesController(ICategoryService categoryService)
         {
-            _productService = productService;
+            _categoryService = categoryService;
         }
 
         [HttpGet("getall")]
@@ -32,8 +32,8 @@ namespace WebAPI.Controllers
             //swagger -- dokumente edilmiş
             // Dependency chain -- bağımlılık
             //IProductService productService = new ProductManager(new EfProductDal());
-            Thread.Sleep(1000);
-            var result = _productService.GetAll();
+            //Thread.Sleep(1000);
+            var result = _categoryService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -42,9 +42,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Product product)
+        public IActionResult Add(Category category)
         {
-            var result = _productService.Add(product);
+            var result = _categoryService.Add(category);
             if (result.Success)
             {
                 return Ok(result);
@@ -53,9 +53,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Product product)
+        public IActionResult Update(Category category)
         {
-            var result = _productService.Update(product);
+            var result = _categoryService.Update(category);
             if (result.Success)
             {
                 return Ok(result);
@@ -64,9 +64,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Product product)
+        public IActionResult Delete(Category category)
         {
-            var result = _productService.Delete(product);
+            var result = _categoryService.Delete(category);
             if (result.Success)
             {
                 return Ok(result);
@@ -74,33 +74,11 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-
-        [HttpGet("getallbycategoryid")]
-        public IActionResult GetAllByCategoryId(int id)
-        {
-            var result = _productService.GetAllByCategoryId(id);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
 
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
-            var result = _productService.GetById(id);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
-        [HttpGet("getbycategory")]
-        public IActionResult GetByCategory(int categoryId)
-        {
-            var result = _productService.GetAllByCategoryId(categoryId);
+            var result = _categoryService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
