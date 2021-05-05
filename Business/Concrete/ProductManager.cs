@@ -71,10 +71,11 @@ namespace Business.Concrete
             return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductID == id));
         }
 
-        [SecuredOperation("product.add,admin")]
+        //[SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]
         [CacheRemoveAspect("IProductService.Get")]
         [PerformanceAspect(5)]
+        [LogAspect(typeof(FileLogger))]
         public IResult Add(Product product)
         {
             //business code

@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Connected Services\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\img\" />
     <Folder Include="wwwroot\js\" />
